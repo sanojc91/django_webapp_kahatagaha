@@ -1,0 +1,91 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}
+    <title>KGLL - Contacts</title>
+{% endblock title %}
+{% block css%}
+<link rel="stylesheet" href="{%static 'css/contact.css'%}">
+<link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+{% endblock css%}
+
+{% block active_contact %}active{% endblock active_contact %}
+
+{% block content %}
+<div class="container contact-form">
+    <div class="contact-image">
+        <img src="{% static 'images/kgll_logo.png' %}" alt="rocket_contact"/>
+    </div>
+    <form method="POST" action=".">{% csrf_token %}
+        <h3>Drop Us a Message</h3>
+       <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <input type="text" name="txtName" class="form-control" placeholder="Your Name *" value="" />
+                </div>
+                <div class="form-group">
+                    <input type="text" name="txtEmail" class="form-control" placeholder="Your Email *" value="" />
+                </div>
+                <div class="form-group">
+                    <input type="text" name="txtPhone" class="form-control" placeholder="Your Phone Number *" value="" />
+                </div>
+                <div class="form-group">
+                    <input type="submit" name="btnSubmit" class="btnContact" value="Submit" />
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <textarea name="txtMsg" class="form-control" placeholder="Your Message *" style="width: 100%; height: 150px;"></textarea>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+<div class="container">
+    <div class="col-md-12 justify-content-center">
+        <div class="row">
+            <div class="col-md-8">
+                <div class="mapouter"><div class="gmap_canvas"><iframe width="582" height="282" id="gmap_canvas" src="https://maps.google.com/maps?q=kahatagaha%20graphite%20lanka%20Limited&t=&z=13&ie=UTF8&iwloc=&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe></div><style>.mapouter{position:relative;text-align:right;height:282px;width:582px;}.gmap_canvas {overflow:hidden;background:none!important;height:282px;width:582px;}</style></div>
+      
+            </div>
+            <div class="col-md-4 justify-content-center">
+                <div class="info-box">
+                    <h2>Head Office</h2>
+                    <ul>
+                        <li>
+                            <span class="icon"><i class="fas fa-map-marker-alt"></i></span>
+                            <span class="info"> 561/3, Elvitigala Mawatha, Narahenpita, Colombo 05. Sri Lanaka</span>
+                        </li>
+                        <li>
+                            <span class="icon"><i class="fas fa-phone-alt"></i></span>
+                            <span class="info"> +94 112 368737</span>
+                        </li>
+                        <li>
+                            <span class="icon"><i class="fas fa-envelope"></i></span>
+                            <span class="info"> kgll@sltnet.lk</span>
+                        </li>
+                    </ul>
+                </div>
+                <div class="info-box">
+                    <h2>Mines Office</h2>
+                    <ul>
+                        <li>
+                            <span class="icon"><i class="fas fa-map-marker-alt"></i></span>
+                            <span class="info"> Maduragoda, Kurunegala. Sri Lanaka (60532)</span>
+                        </li>
+                        <li>
+                        <span class="icon"><i class="fas fa-phone-alt"></i></span>
+                        <span class="info"> +94 372 252015</span>
+                    </li>
+                    <li>
+                        <span class="icon"><i class="fas fa-envelope"></i></span>
+                        <span class="info"> kgllmines@gmail.com</span>
+                    </li>
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+</div>
+{% endblock content %}

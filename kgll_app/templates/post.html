@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title%}
+<title>KGLL - Blog Post</title>
+{% endblock title%}
+{% block css %}
+<link rel="stylesheet" href="{%static 'css/post.css'%}">
+{% endblock css %}
+
+
+{% block content %}
+    <div class="container h-100">
+
+      <div class="row h-100 justify-content-center align-items-center">
+
+        <!-- Blog Entries Column -->
+        <div class="col-md-8">
+          <!-- Blog Post -->
+          <div class="card mb-4">
+            <img class="card-img-top" src="{{ object.image_1.url }}" alt="Card image cap">
+            <div class="card-body">
+              <h2 class="card-title">{{ object.title }}</h2>
+              <p class="card-text text-justify">{{ object.content }}</p>
+            </div>
+            <div class="card-footer text-muted">
+              Posted on {{ object.date_posted }} by
+              <a href="#">{{ object.author }}</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+          <!-- Blog Post -->
+
+{% endblock content %}

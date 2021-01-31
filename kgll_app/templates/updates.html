@@ -1,0 +1,62 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title%}
+<title>KGLL - Updates</title>
+{% endblock title%}
+{% block css %}
+<link rel="stylesheet" href="{%static 'css/updates.css'%}">
+{% endblock css %}
+{% block active_updates %}active{% endblock active_updates %}
+
+{% block content %}
+ <section class="publicaciones-blog-home">
+      <div class="container">
+        <div>
+          <h1 class="section-title">Updates</h1>
+          <hr>
+
+          <div class="row-page row">
+          {% for post in posts %}
+            {% if forloop.last %}
+            <div class="col-page col-sm-8 col-md-6">
+              <a href="{% url 'post-detail' post.id %}" class="black fondo-publicacion-home">
+                <div class="img-publicacion-principal-home">
+                  <img class="" src="{{post.image_1.url}}">
+                </div>
+                <div class="contenido-publicacion-principal-home">
+                  <h3>{{ post.title }}</h3>
+                  <p>{{ post.summary }}<span>...</span></p>
+                  <div class="bottomright">
+                    <h6>By {{ post.author }}, {{ post.date_posted }}</h6>
+                  </div>
+                </div>
+                <div class="mascara-enlace-blog-home">
+                  <span>Read More </span>
+                </div>
+              </a>
+            </div>
+            {% else %}
+            <div class="col-page col-sm-4 col-md-3">
+              <a href=""  class="fondo-publicacion-home">
+                <div class="img-publicacion-home">
+                  <img class="img-responsive" src="{{post.image_1.url}}">
+                </div>
+                <div class="contenido-publicacion-home">
+                  <h3>{{ post.title }}</h3>
+                  <p>{{ post.summary }}<span>...</span></p>
+                  <div class="bottomright">
+                    <h6>By {{ post.author }}, {{ post.date_posted }}</h6>
+                  </div>
+                </div>
+                <div class="mascara-enlace-blog-home">
+                  <span>Read More </span>
+                </div>
+              </a>
+            </div>
+            {% endif %}
+          {% endfor %}
+          </div>
+        </div>
+      </div>
+ </section>
+{% endblock content %}

@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block css%}
+	<link rel="stylesheet" href="{%static 'css/products.css'%}">
+{% endblock css%}
+{% block title%}
+    <title>KGLL - Products</title>
+{% endblock title%}
+
+{% block active_products %}active{% endblock active_products %}
+
+{% block content %}
+    <div class="container">
+		<h1 class="text-center section-title">KGLL PRODUCT</h1>
+		<hr>
+		{% for pro in product %}
+		<div class="row">
+			<!-- Product  -->
+			<div class="col-md-4 product-grid">
+				<div class="image">
+					<a href="#">
+						<img src="{{ pro.product_image.url }}" class="w-100">
+						<div class="overlay">
+							<div class="detail">View Details</div>
+						</div>
+					</a>
+				</div>
+				<h5 class="text-center">{{ pro.product_name }}</h5>
+				<h5 class="text-center">Particle Size : {{pro.particle_size}} Mesh</h5>
+				<a href="{% url 'contact' %}" class="btn buy">Contact Us</a>
+			</div>
+			<!-- ./Product -->
+			{% endfor %}
+
+		</div>
+
+	</div>
+
+{% endblock content %}
+{% block js%}
+
+{% endblock js%}
